@@ -53,15 +53,10 @@ public class MyTabbedActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         viewPager = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.tab_layout);
+        viewPager.setAdapter(mSectionsPagerAdapter);
 
-        viewPager.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                viewPager.setAdapter(mSectionsPagerAdapter);
-                viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-                tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
-            }
-        },500);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
     }
 
 
